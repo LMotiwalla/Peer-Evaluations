@@ -1,4 +1,11 @@
 const members = [
+  {
+    "Group": "Team_1",
+    "Email": "kenneth_quigley@student.uml.edu",
+    "First_Name": "Ken",
+    "Last_Name": "Quigley",
+    "Class": "051"
+  },
  {
    "Group": "Team_1",
    "Email": "cailey_watson@student.uml.edu",
