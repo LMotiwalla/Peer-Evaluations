@@ -7,8 +7,8 @@
     var activeMember;
     document.getElementById("req-form-submit").onclick = () => {
         activeMember = members.filter(member => (
-            member.Email == document.getElementById("studentEmail").value &&
-            member.Class == document.getElementById("studentClass").value
+            member.Email.toLowerCase() == document.getElementById("studentEmail").value.toLowerCase() &&
+            member.Class.toLowerCase() == document.getElementById("studentClass").value.toLowerCase()
         ))[0];
 
         if(!activeMember) 
