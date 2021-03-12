@@ -62,9 +62,9 @@
         document.getElementById("eval-fail").hidden = true;
 
         const mongodb = app.currentUser.mongoClient("mongodb-atlas");
-        const forms = mongodb.db("peer-evaluations").collection("scores");
-
-        forms.insertMany(
+        const db = mongodb.db("peer-evaluations");
+        
+        db.collection("scores").insertMany(
             Array.from(document.querySelectorAll("[type=radio]:checked")).map(checked => ({
                 student: atob(checked.name),
                 score: Number(checked.value),
@@ -73,8 +73,22 @@
                 group: activeMember.Group
             }))
         ).then(() => {
-            document.getElementById("eval-succ").hidden = false;
+            if(document.getElementById("feedbackTextbox").value && document.getElementById("feedbackTextbox") != "")
+                db.collection('comments').insertOne({
+                    reviewer: activeMember.Email,
+                    class: activeMember.Class,
+                    group: activeMember.Group,
+                    comment: document.getElementById("feedbackTextbox").value
+                }).then(() => {
+                    document.getElementById("eval-succ").hidden = false;
+                }).catch(() => {
+                    console.log('Comment Submission Failed');
+                    document.getElementById("eval-fail").hidden = false;
+                });
+            else
+                document.getElementById("eval-succ").hidden = false;
         }).catch(() => {
+            console.log('Score Submission Failed');
             document.getElementById("eval-fail").hidden = false;
         });
     };

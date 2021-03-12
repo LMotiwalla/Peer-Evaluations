@@ -5,9 +5,10 @@
     await app.logIn(Realm.Credentials.anonymous());
 
     const mongodb = app.currentUser.mongoClient("mongodb-atlas");
-    const forms = mongodb.db("peer-evaluations").collection("scores");
+    const scores = mongodb.db("peer-evaluations").collection("scores");
+    const comments = mongodb.db("peer-evaluations").collection("comments");
 
-    const tallyValues = await forms.aggregate([
+    const tallyValues = await scores.aggregate([
         { 
             "$group": {
                 "_id": {
@@ -45,7 +46,18 @@
             </tr>`;
     });
 
-    const rawValues = await forms.find({},{});
+    const commentValues = await comments.find({},{});
+    commentValues.reverse().forEach(commentValue => {
+        document.getElementById("feedback").innerHTML += `
+            <tr>\
+            <td>${commentValue.class}</td>\
+            <td>${commentValue.group}</td>\
+            <td>${commentValue.reviewer}</td>\
+            <td>${commentValue.comment}</td>\
+            </tr>`;
+    });
+
+    const rawValues = await scores.find({},{});
     rawValues.reverse().forEach(rawValue => {
         document.getElementById("raw").innerHTML += `
             <tr>\
