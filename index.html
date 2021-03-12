@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <title>Peer Evaluations</title>
+    <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1">Peer Evaluations</span>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="request-form">
+            <div class="mb-3">
+            <label for="studentEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="studentEmail">
+            </div>
+            <div class="mb-3">
+            <label for="studentClass" class="form-label">Class Code</label>
+            <input type="text" class="form-control" id="studentClass">
+            </div>
+            <button id="req-form-submit" class="btn btn-primary">Load Team Evaluation Form</button>
+            <br><br>
+            <div class="alert alert-danger" id="auth-fail" role="alert" hidden="true">
+                Authentication Failed.
+            </div>
+        </div>
+        <div id="scoring-form" hidden="true">
+            <h2 id="member"></h2>
+            <div id="scoring-form-input"><hr></div>
+            <button id="scoring-form-submit" class="btn btn-primary">Submit Team Evaluation Form</button>
+
+            <div class="alert alert-success" id="eval-succ" role="alert" hidden="true">
+                Submission Succeeded.
+            </div>
+            <div class="alert alert-danger" id="eval-fail" role="alert" hidden="true">
+                Submission Failed.
+            </div>
+        </div>
+    </div>
+    <script src="members.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
