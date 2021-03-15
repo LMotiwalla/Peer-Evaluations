@@ -41,7 +41,7 @@
             <td>${tallyValue._id.class}</td>\
             <td>${tallyValue._id.group}</td>\
             <td>${tallyValue._id.student}</td>\
-            <td>${tallyValue.score}</td>\
+            <td>${tallyValue.score.toFixed(2)}</td>\
             <td>${tallyValue.numReviews}</td>\
             </tr>`;
     });
