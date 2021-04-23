@@ -1,3 +1,0 @@
-The database interaction relies on MongoDB Atlas/Realm, please reach out to Roshan Ravi <roshan@roshanravi.com> for access if needed.
-
-Otherwise, a hosted MongoDB Atlas/Realm instance can be created here: https://www.mongodb.com/realm and the Realm.App configuration updated in main.js & scoring.js
