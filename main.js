@@ -1,3 +1,14 @@
+const members = memberCSVData.split("\n").map((member) => {
+    member = member.split(",").map(field => field.trim());
+    return {
+      "Group": member[0],
+      "Email": member[1],
+      "First_Name": member[2],
+      "Last_Name": member[3],
+      "Class": member[4]
+    }
+});
+
 (async () => {
     const app = new Realm.App({
         id: "application-0-tcpbe"
