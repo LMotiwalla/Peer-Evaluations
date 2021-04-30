@@ -43,4 +43,16 @@ Team_6,jeffrey_shilo@student.uml.edu,Jeffrey,Shilo,052
 Team_6,stephanie_patel@student.uml.edu,Stephanie,Patel,052
 Team_6,grant_santos@student.uml.edu,Grant,Santos,052
 Team_6,maricely_perez@student.uml.edu,Maricely,Perez,052
-Team_6,habtemariam_waktola@student.uml.edu,Habte,Waktola,052`
+Team_6,habtemariam_waktola@student.uml.edu,Habte,Waktola,052
+Team_1,michael_foley@student.uml.edu,Michael,Foley,201
+Team_1,puja_singh@student.uml.edu,Puja,Singh,201
+Team_1,william_hubbard@student.uml.edu,William,Hubbard,201
+Team_2,henry_serwanga@student.uml.edu,Henry,Serwanga,201
+Team_2,courtney_coleman@student.uml.edu,Courtney,Coleman,201
+Team_2,andrew_dickinson@student.uml.edu,Andrew,Dickinson,201
+Team_3,haley_warringer@student.uml.edu,Haley,Warringer,201
+Team_3,shaun_mckenna@student.uml.edu,Shaun,McKenna,201
+Team_3,christopher_wilson2@student.uml.edu,Christopher,Wilson,201
+Team_3,kevin_vispoli@student.uml.edu,Kevin,Vispoli,201
+Team_4,shailja_patel@student.uml.edu,Shailja,Patel,201
+Team_4,chhounneang_seng@student.uml.edu,June,Seng,201`
