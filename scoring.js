@@ -3,7 +3,7 @@ var tallyScoreCSV = `Class,Group,Student Email,Student Score,Evaluation Submitte
     const app = new Realm.App({
         id: "application-0-tcpbe"
     });
-    await app.logIn(Realm.Credentials.anonymous());
+    await app.logIn(Realm.Credentials.emailPassword("peer-evaluations@roshanravi.com", "PeerEvals@UML"));
 
     const mongodb = app.currentUser.mongoClient("mongodb-atlas");
     const scores = mongodb.db("peer-evaluations").collection("scores");
