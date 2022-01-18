@@ -1,19 +1,39 @@
-const members = memberCSVData.split("\n").map((member) => {
-    member = member.split(",").map(field => field.trim());
-    return {
-      "Group": member[0],
-      "Email": member[1],
-      "First_Name": member[2],
-      "Last_Name": member[3],
-      "Class": member[4]
-    }
-});
-
 (async () => {
     const app = new Realm.App({
         id: "application-0-tcpbe"
     });
     await app.logIn(Realm.Credentials.anonymous());
+
+    const members = memberCSVData.split("\n").map((member) => {
+        member = member.split(",").map(field => field.trim());
+        firstName = member[2].split("@")[0].split("_")[0];
+        lastName = member[2].split("@")[0].split("_").slice(1).join('');
+    
+        return {
+          "Group": member[1],
+          "Email": member[2],
+          "First_Name": firstName[0].toUpperCase() + firstName.slice(1).toLowerCase(),
+          "Last_Name": lastName[0].toUpperCase() + lastName.slice(1).toLowerCase(),
+          "Class": member[0]
+        }
+    });
+
+    $("#studentEmail").on('input', () => {
+        activeMemberClasses = members.filter(member => (
+            member.Email.toLowerCase() == document.getElementById("studentEmail").value.toLowerCase()
+        ));
+
+        if(activeMemberClasses.length > 0){
+            $("#studentClass").html(activeMemberClasses.map(entry => `<option>${entry['Class']}</option>`));
+            $("#req-form-class").show();
+            $("#req-form-submit").show();
+            $("#email-warn").hide();
+        } else {
+            $("#email-warn").show();
+            $("#req-form-class").hide();
+            $("#req-form-submit").hide();
+        }
+    });
 
     var activeMember;
     document.getElementById("req-form-submit").onclick = () => {
@@ -84,22 +104,28 @@ const members = memberCSVData.split("\n").map((member) => {
                 group: activeMember.Group
             }))
         ).then(() => {
-            if(document.getElementById("feedbackTextbox").value && document.getElementById("feedbackTextbox") != "")
+            if(document.getElementById("feedbackTextbox").value && document.getElementById("feedbackTextbox") != ""){
                 db.collection('comments').insertOne({
                     reviewer: activeMember.Email,
                     class: activeMember.Class,
                     group: activeMember.Group,
                     comment: document.getElementById("feedbackTextbox").value
                 }).then(() => {
+                    document.getElementById("scoring-form").hidden = true;
                     document.getElementById("eval-succ").hidden = false;
-                }).catch(() => {
+                }).catch((e) => {
                     console.log('Comment Submission Failed');
+                    console.error(e.error.toString().includes("E11000"));
                     document.getElementById("eval-fail").hidden = false;
                 });
-            else
+            } else {
+                document.getElementById("scoring-form").hidden = true;
                 document.getElementById("eval-succ").hidden = false;
-        }).catch(() => {
+            }
+        }).catch((e) => {
             console.log('Score Submission Failed');
+            if (e.error.toString().includes("E11000"))
+                document.getElementById("eval-fail").innerText = "Submission failed due to pre-existing submission."
             document.getElementById("eval-fail").hidden = false;
         });
     };

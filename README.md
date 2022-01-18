@@ -2,7 +2,7 @@
 - index.html/main.js (Student Input Page/Script)
 - scoring.html/scoring.js (Scoring Tables Page/Scrip)
 - members.js (Stores Current Class CSV)
-    - Store the `Team Number, Student Email, First Name, Last Name, Class Code` in CSV format between the backticks in this files. Don't include the CSV header.
+    - Store the `Class, Team Number, Student Email` in CSV format between the backticks in this files. Don't include the CSV header.
 
 ## Configuring Domain Name
 Need to repoint DNS records with domain registrar and update `CNAME` file.
