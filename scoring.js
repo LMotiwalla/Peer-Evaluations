@@ -1,4 +1,5 @@
-var tallyScoreCSV = `Class,Group,Student Email,Student Score,Evaluation Submitted,Student Feedback (if provided)`;
+const tallyScoreHeader = `Class,Group,Student Email,Student Score,Evaluation Submitted,Student Feedback (if provided)`;
+var tallyScoreCSV = tallyScoreHeader;
 (async () => {
     const app = new Realm.App({
         id: "application-0-tcpbe"
@@ -106,6 +107,33 @@ var tallyScoreCSV = `Class,Group,Student Email,Student Score,Evaluation Submitte
     downloadlink.href = URL.createObjectURL(new Blob([tallyScoreCSV], {type: "text/csv"}));
     downloadlink.download = `PeerEvaluations-${(new Date()).toISOString()}.csv`;
     downloadlink.hidden = false;
+
+    (await scores.aggregate([
+        { 
+            "$group": {
+                "_id": "$class"
+            }
+        }
+    ])).sort().map(classObject => classObject._id).forEach(classString => {
+        var tallyScoreCSV = tallyScoreHeader;
+
+        tallyValues.reverse().filter(tallyValue => tallyValue._id.class == classString).forEach(tallyValue => {
+            tallyValue.comment = tallyValue.comments.length > 0 ?
+                tallyValue.comments[0].comment.replaceAll('\n',' ').replaceAll( /\s\s+/g, ' ') : "N/A";
+            tallyValue.submitted = tallyValue.scores.length > 0 ? "Y" : "N";
+    
+            tallyScoreCSV += `\n"${tallyValue._id.class}","${tallyValue._id.group}","${tallyValue._id.student}",${tallyValue.score.toFixed(2)},"${tallyValue.submitted}","${tallyValue.comment}"`;
+        });
+
+        document.getElementById("req-scoring-byclass").innerHTML += 
+            `<a 
+                class="btn btn-secondary"
+                href=${URL.createObjectURL(new Blob([tallyScoreCSV], {type: "text/csv"}))}
+                download="PeerEvaluations-${classString}-${(new Date()).toISOString()}.csv"
+            >
+                Export Scoring for ${classString}
+            </a>`;
+    });
 
     const deleteData = document.getElementById("delete-scoring-data");
     deleteData.onclick = async () => {

@@ -17,8 +17,6 @@
     </nav>
     <div class="container">
         <h2>Evaluations Overview:</h2>
-        <a id="req-scoring-overview" class="btn btn-primary" hidden>Export Scoring Overview</a>
-        <button id="delete-scoring-data" class="btn btn-danger" hidden>Delete Scoring Data</button>
         <table class="table" id="tally">
             <thead><tr>
                 <td>Class</td>
@@ -29,6 +27,12 @@
                 <td>Student Feedback (if provided)</td>
             </t4></thead>
         </table>
+        <h2>Manage Scoring Data</h2>
+        <div class="d-grid gap-2">
+            <a id="req-scoring-overview" class="btn btn-primary" hidden>Export Scoring Overview</a>
+            <div class="d-grid gap-2" id="req-scoring-byclass"></div>
+            <button id="delete-scoring-data" class="btn btn-danger" hidden>Delete Scoring Data</button>
+        </div>
         <h2>Raw Written Feedback:</h2>
         <table class="table" id="feedback">
             <thead><tr>
