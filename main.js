@@ -103,40 +103,4 @@ const members = memberCSVData.split("\n").map((member) => {
             document.getElementById("eval-fail").hidden = false;
         });
     };
-
-    // const loginEmailPassword = async (Email, password) => {
-    //     const credentials = Realm.Credentials.EmailPassword(Email, password);
-
-    //     const user = await app.logIn(credentials);
-    //     return (user.id === app.currentUser.id) ? user : undefined;
-    // }
-
-    // const registerEmailPassword = async (Email, password) => {
-    //     await app.EmailPasswordAuth.registerUser(Email, password);
-    // }
-
-    // const logout = async () => {
-    //     await app.currentUser.logOut();
-    // };
-
-    // const urlParams = new URLSearchParams(window.location.hash.split("#")[1]);
-    // switch (urlParams.get('action')) {
-    //     case "EmailConfirmation":
-    //         const token = urlParams.get('token');
-    //         const tokenId = urlParams.get('tokenId');
-    //         await app.EmailPasswordAuth.confirmUser(token, tokenId);
-    //         break;
-    //     case "resetPassword":
-    //         // TODO: Handle Password Reset
-    //         break;
-    // }
-
-    // // TODO: Registration Form
-    // const Email = "roshan_ravi@student.uml.edu";
-    // const password = "MyRealmPassword";
-    // // registerEmailPassword(Email, password);
-
-    // // TODO: Login Form
-    // await loginEmailPassword(Email, password);
-    // console.log(app.currentUser.customData);
 })();

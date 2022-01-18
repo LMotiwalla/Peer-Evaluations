@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>MIST.6010 – Peer Evaluations for T-Talks</title>
+    <title>Peer Evaluations for T-Talks</title>
     <script src="https://unpkg.com/realm-web@1.2.0/dist/bundle.iife.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -12,12 +12,13 @@
 <body>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">MIST.6010 – Peer Evaluations for T-Talks</span>
+            <span class="navbar-brand mb-0 h1">Peer Evaluations for T-Talks</span>
         </div>
     </nav>
     <div class="container">
         <h2>Evaluations Overview:</h2>
-        <a id="req-scoring-overview" class="btn btn-primary" hidden=>Export Scoring Overview</a>
+        <a id="req-scoring-overview" class="btn btn-primary" hidden>Export Scoring Overview</a>
+        <button id="delete-scoring-data" class="btn btn-danger" hidden>Delete Scoring Data</button>
         <table class="table" id="tally">
             <thead><tr>
                 <td>Class</td>

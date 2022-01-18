@@ -17,15 +17,8 @@ var tallyScoreCSV = `Class,Group,Student Email,Student Score,Evaluation Submitte
                     "class": "$class",
                     "group": "$group"
                 },
-                "numReviews": { "$sum": 1 },
-                "netScores": { "$sum": "$score" }
-            }
-        },
-        { 
-            "$addFields": {
-                "score": {
-                    "$divide": ["$netScores", "$numReviews"]
-                }
+                "score": { "$avg": "$score" },
+                "scores": { "$push": "$score" }
             }
         },
         {
@@ -58,32 +51,9 @@ var tallyScoreCSV = `Class,Group,Student Email,Student Score,Evaluation Submitte
                 ],
                 as: "comments"
             }
-        },
-        {
-            "$lookup": {
-                "from": "scores",
-                "let": { 
-                    "student": "$_id.student",
-                    "class": "$_id.class",
-                    "group": "$_id.group"
-                },
-                "pipeline": [
-                    { "$match":
-                       { "$expr":
-                          { "$and":
-                             [
-                                { "$eq": [ "$reviewer",  "$$student" ] },
-                                { "$eq": [ "$class",  "$$class" ] },
-                                { "$eq": [ "$group",  "$$group" ] }
-                             ]
-                          }
-                       }
-                    }
-                ],
-                as: "scores"
-            }
         }
     ]);
+
     var tableBuffer = "";
     tallyValues.reverse().forEach(tallyValue => {
         tallyValue.comment = tallyValue.comments.length > 0 ?
@@ -132,10 +102,18 @@ var tallyScoreCSV = `Class,Group,Student Email,Student Score,Evaluation Submitte
     });
     document.getElementById("raw").innerHTML += `<tbody>${tableBuffer}</tbody>`;
 
-    const link = document.getElementById("req-scoring-overview");
-    link.hidden = false;
-    link.href = URL.createObjectURL(new Blob([tallyScoreCSV], {type: "text/csv"}));
-    link.download = `PeerEvaluations-${(new Date()).toISOString()}.csv`;
+    const downloadlink = document.getElementById("req-scoring-overview");
+    downloadlink.href = URL.createObjectURL(new Blob([tallyScoreCSV], {type: "text/csv"}));
+    downloadlink.download = `PeerEvaluations-${(new Date()).toISOString()}.csv`;
+    downloadlink.hidden = false;
+
+    const deleteData = document.getElementById("delete-scoring-data");
+    deleteData.onclick = async () => {
+        await scores.deleteMany({});
+        await comments.deleteMany({});
+        window.location.reload();
+    };
+    deleteData.hidden = false;
 
     $('#tally').DataTable();
     $('#feedback').DataTable();
