@@ -1,4 +1,4 @@
-const tallyScoreHeader = `Class,Group,Student Email,Student Score,Evaluation Submitted,Student Feedback (if provided)`;
+const tallyScoreHeader = `Class,Group,Student First Name,Student Last Name,Student Email,Student Score,Evaluation Submitted,Student Feedback (if provided)`;
 var tallyScoreCSV = tallyScoreHeader;
 (async () => {
     const app = new Realm.App({
@@ -71,7 +71,7 @@ var tallyScoreCSV = tallyScoreHeader;
             <td>${tallyValue.comment}</td>\
             </tr>`;
 
-        tallyScoreCSV += `\n"${tallyValue._id.class}","${tallyValue._id.group}","${tallyValue._id.student}",${tallyValue.score.toFixed(2)},"${tallyValue.submitted}","${tallyValue.comment}"`;
+        tallyScoreCSV += `\n"${tallyValue._id.class}","${tallyValue._id.group}","${tallyValue._id.student.split("@")[0].split("_")[0]}","${tallyValue._id.student.split("@")[0].split("_")[1]}","${tallyValue._id.student}",${tallyValue.score.toFixed(2)},"${tallyValue.submitted}","${tallyValue.comment}"`;
     });
     document.getElementById("tally").innerHTML += `<tbody>${tableBuffer}</tbody>`;
 
@@ -122,7 +122,7 @@ var tallyScoreCSV = tallyScoreHeader;
                 tallyValue.comments[0].comment.replaceAll('\n',' ').replaceAll( /\s\s+/g, ' ') : "N/A";
             tallyValue.submitted = tallyValue.scores.length > 0 ? "Y" : "N";
     
-            tallyScoreCSV += `\n"${tallyValue._id.class}","${tallyValue._id.group}","${tallyValue._id.student}",${tallyValue.score.toFixed(2)},"${tallyValue.submitted}","${tallyValue.comment}"`;
+            tallyScoreCSV += `\n"${tallyValue._id.class}","${tallyValue._id.group}","${tallyValue._id.student.split("@")[0].split("_")[0]}","${tallyValue._id.student.split("@")[0].split("_")[1]}","${tallyValue._id.student}",${tallyValue.score.toFixed(2)},"${tallyValue.submitted}","${tallyValue.comment}"`;
         });
 
         document.getElementById("req-scoring-byclass").innerHTML += 
