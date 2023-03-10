@@ -39,7 +39,7 @@ MIST.6010-081,Team_5,maki_noiri@student.uml.edu
 MIST.6010-081,Team_5,kyoko_yabe@student.uml.edu
 MIST.6010-081,Team_6,kiley_reitano@student.uml.edu
 MIST.6010-081,Team_6,christine_nguyen1@student.uml.edu
-MIST.6010-081,Team_6,claudehelene_mcintyre@student.uml.edu
+MIST.6010-081,Team_6,everlyne_nalule@student.uml.edu
 MIST.6010-081,Team_6,yasuhiko_kurihara@student.uml.edu
 MIST.6010-081,Team_6,yu_kisaki@student.uml.edu
 MIST.6010-081,Team_6,tomoki_hanajima@student.uml.edu
