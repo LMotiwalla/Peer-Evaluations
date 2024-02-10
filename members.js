@@ -5,8 +5,8 @@
  */
 
 const memberCSVData = 
-`MIST.6010-081,Team_0,test_user1@student.uml.edu
-MIST.6010-081,Team_0,test_user2@student.uml.edu
+`MIST.6010-081,Team_0,test_user1@student.uml.edu,Luvai, Motiwa
+MIST.6010-081,Team_0,test_user2@student.uml.edu, Sunder, Pinchai
 MIST.6010-081,Team_1,peter_miller@student.uml.edu,Peter,Miller
 MIST.6010-081,Team_1,erik_eriksen@student.uml.edu,Erik,Eriksen
 MIST.6010-081,Team_1,anexis_sanchez@student.uml.edu,Anexis,Sanchez
