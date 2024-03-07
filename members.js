@@ -81,4 +81,5 @@ MIST.6010-083,Team_6,william_parsons@student.uml.edu,Will,Parsons
 MIST.6010-083,Team_6,mitchel_pulaski@student.uml.edu,Mitchel,Pulaski
 MIST.6010-083,Team_6,aubrey_billittier@student.uml.edu,Aubrey,Billittier
 MIST.6010-083,Team_6,jared_greenberg@student.uml.edu,Jared,Greenberg
-MIST.6010-083,Team_6,bhanu_moligi@student.uml.edu,Bhanu,Moligi`
+MIST.6010-083,Team_6,bhanu_moligi@student.uml.edu,Bhanu,Moligi
+MIST.6010-083,Team_2,Jaden_Smith@student.uml.edu, Smith, Jaden`
