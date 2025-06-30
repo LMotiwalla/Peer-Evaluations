@@ -7,29 +7,35 @@
 const memberCSVData = 
 `MIST.6010-081,Team_0,test_user1@student.uml.edu,Luvai,Motiwalla
 MIST.6010-081,Team_0,test_user2@student.uml.edu, Sunder,Pinchai
-MIST.6010-088,Team_1,Trishna_Aich@student.uml.edu,Aich,Trishna
-MIST.6010-088,Team_5,Pierson_Brandon@student.uml.edu,Brandon,Pierson
-MIST.6010-088,Team_5,Tate_Brandon@student.uml.edu,Brandon,Tate
-MIST.6010-088,Team_2,Justin_Cruickshank@student.uml.edu,Cruickshank,Justin
-MIST.6010-088,Team_2,Quinn_Dala@student.uml.edu,Dala,Quinn
-MIST.6010-088,Team_4,Macayla_DeAmelio@student.uml.edu,DeAmelio,Macayla
-MIST.6010-088,Team_3,Kaitlin_Dickey@student.uml.edu,Dickey,Kaitlin
-MIST.6010-088,Team_3,Naveed_Jabbar@student.uml.edu,Jabbar,Naveed
-MIST.6010-088,Team_3,Aaron_Lecomte@student.uml.edu,Lecomte,Aaron
-MIST.6010-088,Team_1,Andrew_Linnehan1@student.uml.edu,Linnehan,Andrew
-MIST.6010-088,Team_2,James_McDonnell1@student.uml.edu,McDonnell,James
-MIST.6010-088,Team_3,Donovan_McKee@student.uml.edu,McKee,Donovan
-MIST.6010-088,Team_1,Rocco_Morello@student.uml.edu,Morello,Rocco
-MIST.6010-088,Team_5,Paul_Neilan@student.uml.edu,Neilan,Paul
-MIST.6010-088,Team_4,Anabelle_OKeefe@student.uml.edu,O'Keefe,Anabelle
-MIST.6010-088,Team_3,Steven_Palmacci@student.uml.edu,Palmacci Jr,Steven
-MIST.6010-088,Team_4,Kajal_Patel@student.uml.edu,Patel,Kajal
-MIST.6010-088,Team_1,Chloe_Raesly@student.uml.edu,Raesly,Chloe
-MIST.6010-088,Team_5,James_RobilottiIv@student.uml.edu,Robilotti Iv,Jack
-MIST.6010-088,Team_4,Timothy_Rogers@student.uml.edu,Rogers,Timothy
-MIST.6010-088,Team_4,Adam_Ross@student.uml.edu,Ross,Adam
-MIST.6010-088,Team_2,Nicholas_Sasso1@student.uml.edu,Sasso,Nicholas
-MIST.6010-088,Team_5,Ty_Seaton@student.uml.edu,Seaton,Ty
-MIST.6010-088,Team_2,James_Stewart@student.uml.edu,Stewart,James
-MIST.6010-088,Team_4,Lauren_Trahan@student.uml.edu,Trahan,Lauren
-MIST.6010-088,Team_1,Marcela_Widmayer@student.uml.edu,Widmayer,Marcela`
+MIST.6010-081,Team_3,Malaz_Abdelrahman@student.uml.edu,Abdelrahman, Malaz
+MIST.6010-081,Team_1,Isabel_Albert@student.uml.edu,Albert, Isabel
+MIST.6010-081,Team_1,Brittney_Beauchene@student.uml.edu,Beauchene, Brittney
+MIST.6010-081,Team_2,Patricia_Chieh@student.uml.edu,Chieh, Patricia
+MIST.6010-081,Team_1,Emma_Curley@student.uml.edu,Curley, Emma
+MIST.6010-081,Team_2,Tiffany_Gundler@student.uml.edu,Gundler, Tiffany
+MIST.6010-081,Team_5,Reshmi_Gurusamy@student.uml.edu,Gurusamy, Reshmi
+MIST.6010-081,Team_3,Cameron_Hale@student.uml.edu,Hale, Cameron
+MIST.6010-081,Team_4,Yuki_Hirose@student.uml.edu,Hirose, Yuki
+MIST.6010-081,Team_6,Julia_Hovasse@student.uml.edu,Hovasse, Julia
+MIST.6010-081,Team_3,Alfredo_JimenezDamas@student.uml.edu,Jimenez Damas, Alfredo
+MIST.6010-081,Team_4,Takashi_Kato@student.uml.edu,Kato, Takashi
+MIST.6010-081,Team_3,Dorothy_Kauffman@student.uml.edu,Kauffman, Dorothy
+MIST.6010-081,Team_5,Fumiaki_Kobayashi@student.uml.edu,Kobayashi, Fumiaki
+MIST.6010-081,Team_3,Natalie_Lopez@student.uml.edu,Lopez, Natalie
+MIST.6010-081,Team_2,Daniel_McHugh2@student.uml.edu,McHugh, Daniel
+MIST.6010-081,Team_2,Michael_Moorhead@student.uml.edu,Moorhead, Michael
+MIST.6010-081,Team_2,Devinne_Moran@student.uml.edu,Moran, Devinne
+MIST.6010-081,Team_6,Michael_Murphy9@student.uml.edu,Murphy, Michael
+MIST.6010-081,Team_5,Kazunori_Nakayama@student.uml.edu,Nakayama, Kazunori
+MIST.6010-081,Team_6,Hoyama_Narumi@student.uml.edu,Narumi, Hoyama
+MIST.6010-081,Team_4,Eriko_Niino@student.uml.edu,Niino, Eriko
+MIST.6010-081,Team_4,Takeshi_Okamoto@student.uml.edu,Okamoto, Takeshi
+MIST.6010-081,Team_6,Purusharth_Pandya@student.uml.edu,Pandya, Purusharth
+MIST.6010-081,Team_2,Jenavi_Rojas@student.uml.edu,Rojas, Jenavi
+MIST.6010-081,Team_5,Francis_Sargent@student.uml.edu,Sargent, Bill
+MIST.6010-081,Team_5,Takahisa_SHIRATORI@student.uml.edu,SHIRATORI, Takahisa
+MIST.6010-081,Team_1,Christian_Sotelo@student.uml.edu,Sotelo, Christian
+MIST.6010-081,Team_4,Momo_Suzuki@student.uml.edu,Suzuki, Momo
+MIST.6010-081,Team_5,Tetsuro_Tateyama@student.uml.edu,Tateyama, Tetsuro
+MIST.6010-081,Team_1,Carolyn_Tetley@student.uml.edu,Tetley, Carolyn
+MIST.6010-081,Team_4,Tsutomu_Tsuboi@student.uml.edu,Tsuboi, Tsutomu`
