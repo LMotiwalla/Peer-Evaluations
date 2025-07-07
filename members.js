@@ -24,7 +24,7 @@ MIST.6010-081,Team_5,Fumiaki_Kobayashi@student.uml.edu,Kobayashi, Fumiaki
 MIST.6010-081,Team_3,Natalie_Lopez@student.uml.edu,Lopez, Natalie
 MIST.6010-081,Team_2,Daniel_McHugh2@student.uml.edu,McHugh, Daniel
 MIST.6010-081,Team_2,Michael_Moorhead@student.uml.edu,Moorhead, Michael
-MIST.6010-081,Team_2,Devinne_Moran@student.uml.edu,Moran, Devinne
+MIST.6010-081,Team_6,Devinne_Moran@student.uml.edu,Moran, Devinne
 MIST.6010-081,Team_6,Michael_Murphy9@student.uml.edu,Murphy, Michael
 MIST.6010-081,Team_5,Kazunori_Nakayama@student.uml.edu,Nakayama, Kazunori
 MIST.6010-081,Team_6,Hoyama_Narumi@student.uml.edu,Narumi, Hoyama
