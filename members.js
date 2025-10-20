@@ -7,35 +7,40 @@
 const memberCSVData = 
 `MIST.6010-081,Team_0,test_user1@student.uml.edu,Luvai,Motiwalla
 MIST.6010-081,Team_0,test_user2@student.uml.edu, Sunder,Pinchai
-MIST.6010-081,Team_3,Malaz_Abdelrahman@student.uml.edu,Abdelrahman, Malaz
-MIST.6010-081,Team_1,Isabel_Albert@student.uml.edu,Albert, Isabel
-MIST.6010-081,Team_1,Brittney_Beauchene@student.uml.edu,Beauchene, Brittney
-MIST.6010-081,Team_2,Patricia_Chieh@student.uml.edu,Chieh, Patricia
-MIST.6010-081,Team_1,Emma_Curley@student.uml.edu,Curley, Emma
-MIST.6010-081,Team_2,Tiffany_Gundler@student.uml.edu,Gundler, Tiffany
-MIST.6010-081,Team_5,Reshmi_Gurusamy@student.uml.edu,Gurusamy, Reshmi
-MIST.6010-081,Team_3,Cameron_Hale@student.uml.edu,Hale, Cameron
-MIST.6010-081,Team_4,Yuki_Hirose@student.uml.edu,Hirose, Yuki
-MIST.6010-081,Team_6,Julia_Hovasse@student.uml.edu,Hovasse, Julia
-MIST.6010-081,Team_3,Alfredo_JimenezDamas@student.uml.edu,Jimenez Damas, Alfredo
-MIST.6010-081,Team_4,Takashi_Kato@student.uml.edu,Kato, Takashi
-MIST.6010-081,Team_3,Dorothy_Kauffman@student.uml.edu,Kauffman, Dorothy
-MIST.6010-081,Team_5,Fumiaki_Kobayashi@student.uml.edu,Kobayashi, Fumiaki
-MIST.6010-081,Team_3,Natalie_Lopez@student.uml.edu,Lopez, Natalie
-MIST.6010-081,Team_2,Daniel_McHugh2@student.uml.edu,McHugh, Daniel
-MIST.6010-081,Team_2,Michael_Moorhead@student.uml.edu,Moorhead, Michael
-MIST.6010-081,Team_6,Devinne_Moran@student.uml.edu,Moran, Devinne
-MIST.6010-081,Team_6,Michael_Murphy9@student.uml.edu,Murphy, Michael
-MIST.6010-081,Team_5,Kazunori_Nakayama@student.uml.edu,Nakayama, Kazunori
-MIST.6010-081,Team_6,Hoyama_Narumi@student.uml.edu,Narumi, Hoyama
-MIST.6010-081,Team_4,Eriko_Niino@student.uml.edu,Niino, Eriko
-MIST.6010-081,Team_4,Takeshi_Okamoto@student.uml.edu,Okamoto, Takeshi
-MIST.6010-081,Team_6,Purusharth_Pandya@student.uml.edu,Pandya, Purusharth
-MIST.6010-081,Team_2,Jenavi_Rojas@student.uml.edu,Rojas, Jenavi
-MIST.6010-081,Team_5,Francis_Sargent@student.uml.edu,Sargent, Bill
-MIST.6010-081,Team_5,Takahisa_SHIRATORI@student.uml.edu,SHIRATORI, Takahisa
-MIST.6010-081,Team_1,Christian_Sotelo@student.uml.edu,Sotelo, Christian
-MIST.6010-081,Team_4,Momo_Suzuki@student.uml.edu,Suzuki, Momo
-MIST.6010-081,Team_5,Tetsuro_Tateyama@student.uml.edu,Tateyama, Tetsuro
-MIST.6010-081,Team_1,Carolyn_Tetley@student.uml.edu,Tetley, Carolyn
-MIST.6010-081,Team_4,Tsutomu_Tsuboi@student.uml.edu,Tsuboi, Tsutomu`
+MIST.6010-081,Team 2,Susan_Allo@student.uml.edu,Allo, Susan
+MIST.6010-081,Team 2,Laura_Arnold@student.uml.edu,Arnold, Laura
+MIST.6010-081,Team 1,Terry_Badman@student.uml.edu,Badman, Terry
+MIST.6010-081,Team 6,William_Baker1@student.uml.edu,Baker, William
+MIST.6010-081,Team 1,Chad_Bass@student.uml.edu,Bass, Chad
+MIST.6010-081,Team 6,Sydney_Battle@student.uml.edu,Battle, Sydney
+MIST.6010-081,Team 5,Nidhi_Bodalwala@student.uml.edu,Bodalwala, Nidhi
+MIST.6010-081,Team 2,Kira_Cameron@student.uml.edu,Cameron, Kira
+MIST.6010-081,Team 1,Julia_Cotreau@student.uml.edu,Cotreau, Julia
+MIST.6010-081,Team 5,Michael_Cronin2@student.uml.edu,Cronin, Michael
+MIST.6010-081,Team 2,Emily_Day@student.uml.edu,Day, Emily
+MIST.6010-081,Team 4,Richard_DeLoach@student.uml.edu,De Loach, Rich
+MIST.6010-081,Team 3,Annalise_Difolco@student.uml.edu,DiFolco, Annalise
+MIST.6010-081,Team 6,Michael_Douglas1@student.uml.edu,Douglas, Michael
+MIST.6010-081,Team 3,Ainara_FernandezOlivera@student.uml.edu,Fernandez Olivera, Ainara
+MIST.6010-081,Team 1,Trevor_Frazier@student.uml.edu,Frazier, Trevor
+MIST.6010-081,Team 4,Jennifer_Goonan@student.uml.edu,Goonan, Jennifer
+MIST.6010-081,Team 3,Mingli_Hou@student.uml.edu,Hou, Mingli
+MIST.6010-081,Team 6,Yingyi_Huang@student.uml.edu,Huang, Yingyi
+MIST.6010-081,Team 3,Logan_Huff@student.uml.edu,Huff, Logan
+MIST.6010-081,Team 2,Tia_Julian@student.uml.edu,Julian, Tia
+MIST.6010-081,Team 5,Victoria_Katze@student.uml.edu,Katze, Victoria
+MIST.6010-081,Team 4,Jason_Keo@student.uml.edu,Keo, Jason
+MIST.6010-081,Team 5,Nolan_Kimball@student.uml.edu,Kimball, Nolan
+MIST.6010-081,Team 6,Joseph_Lace@student.uml.edu,Lace, Joseph
+MIST.6010-081,Team 5,Joseph_Levesque@student.uml.edu,Levesque, Joey
+MIST.6010-081,Team 5,Angelina_Milinazzo@student.uml.edu,Milinazzo, Angelina
+MIST.6010-081,Team 4,Ghenry_Navarro@student.uml.edu,Navarro Jr., Ghenry
+MIST.6010-081,Team 4,Joao_Pacheco@student.uml.edu,Pacheco, Joao
+MIST.6010-081,Team 3,Chhunheng_Phay@student.uml.edu,Phay, Chhunheng
+MIST.6010-081,Team 4,Djanisha_Philippe@student.uml.edu,Philippe, Djanisha
+MIST.6010-081,Team 1,Thomas_Schweighardt@student.uml.edu,Schweighardt, Tj
+MIST.6010-081,Team 1,Ubaraj_Subedi@student.uml.edu,Subedi, Ubaraj
+MIST.6010-081,Team 5,Irina_Testarmata@student.uml.edu,Testarmata, Irina
+MIST.6010-081,Team 6,Jonathancarlos_TophamGonzalez@student.uml.edu,Topham Gonzalez, Jonathan carlos
+MIST.6010-081,Team 3,Kiara_Vasquez@student.uml.edu,Vasquez, Kiara`
+
