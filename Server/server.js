@@ -16,6 +16,46 @@ const client = new MongoClient(process.env.MONGO_URI);
 
 let scores;
 let comments;
+let roster;
+
+// Get roster data
+app.get("/api/roster", async (req, res) => {
+  try {
+    const rosterData = await roster.find({}).toArray();
+    res.json({ rosterData });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Failed to get roster data" });
+  }
+});
+
+// Upload roster CSV
+app.post("/api/roster/upload", express.text(), async (req, res) => {
+  try {
+    const csvData = req.body;
+    const lines = csvData.split("\n").filter(line => line.trim() !== "");
+
+    const rosterDocs = lines.map(line => {
+      const fields = line.split(",").map(f => f.trim());
+      return {
+        class: fields[0],
+        group: fields[1],
+        email: fields[2],
+        first_name: fields[3],
+        last_name: fields[4],
+        uploadedAt: new Date()
+      };
+    });
+
+    await roster.deleteMany({});
+    await roster.insertMany(rosterDocs);
+
+    res.json({ success: true, count: rosterDocs.length });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Upload failed" });
+  }
+});
 
 // Get scoring-page data
 app.get("/api/scoring", async (req, res) => {
@@ -129,6 +169,7 @@ async function startServer() {
   const db = client.db("peer-evaluations");
   scores = db.collection("scores");
   comments = db.collection("comments");
+  roster = db.collection("roster");
 
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
