@@ -1,18 +1,15 @@
 (async () => {
-  const members = memberCSVData.split("\n").map((member) => {
-    member = member.split(",").map(field => field.trim());
+  // Fetch roster from server API
+  const rosterResponse = await fetch("/api/roster");
+  const rosterData = await rosterResponse.json();
 
-    const firstName = member[2].split("@")[0].split("_")[0];
-    const lastName = member[2].split("@")[0].split("_").slice(1).join("");
-
-    return {
-      Group: member[1],
-      Email: member[2],
-      First_Name: firstName[0].toUpperCase() + firstName.slice(1).toLowerCase(),
-      Last_Name: lastName[0].toUpperCase() + lastName.slice(1).toLowerCase(),
-      Class: member[0]
-    };
-  });
+  const members = rosterData.rosterData.map(member => ({
+    Group: member.group,
+    Email: member.email,
+    First_Name: member.first_name,
+    Last_Name: member.last_name,
+    Class: member.class
+  }));
 
   $("#studentEmail").on("input", () => {
     const activeMemberClasses = members.filter(member => (
@@ -146,5 +143,54 @@
       document.getElementById("eval-fail").innerText = "Submission Failed.";
       document.getElementById("eval-fail").hidden = false;
     }
+  };
+
+  // Add roster upload functionality
+  document.getElementById("upload-roster").onclick = async () => {
+    const fileInput = document.getElementById("roster-file");
+    const statusDiv = document.getElementById("upload-status");
+
+    if (!fileInput.files.length) {
+      statusDiv.className = "alert alert-danger";
+      statusDiv.innerText = "Please select a CSV file.";
+      statusDiv.hidden = false;
+      return;
+    }
+
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = async (e) => {
+      try {
+        const csvData = e.target.result;
+        const response = await fetch("/api/roster/upload", {
+          method: "POST",
+          headers: {
+            "Content-Type": "text/plain"
+          },
+          body: csvData
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+          statusDiv.className = "alert alert-danger";
+          statusDiv.innerText = result.error || "Upload failed.";
+        } else {
+          statusDiv.className = "alert alert-success";
+          statusDiv.innerText = `Successfully uploaded ${result.count} students.`;
+          // Refresh page to load new roster
+          setTimeout(() => location.reload(), 1500);
+        }
+        statusDiv.hidden = false;
+      } catch (err) {
+        console.error(err);
+        statusDiv.className = "alert alert-danger";
+        statusDiv.innerText = "Upload failed.";
+        statusDiv.hidden = false;
+      }
+    };
+
+    reader.readAsText(file);
   };
 })();

@@ -17,7 +17,14 @@
             <span class="navbar-brand mb-0 h1">Peer Evaluations for T-Talks</span>
         </div>
     </nav>
-    <div class="container">
+    <div class="container mt-4">
+        <h3>Upload Student Roster CSV</h3>
+        <div class="mb-3">
+            <input type="file" class="form-control" id="roster-file" accept=".csv">
+        </div>
+        <button id="upload-roster" class="btn btn-success">Upload Roster</button>
+        <div id="upload-status" class="alert mt-2" hidden></div>
+        <hr>
         <p>
             Please take this team evaluation survey below by assigning points between <strong>1 (worst) & 5 (best)</strong> to your teammates based on your honest observation. Make sure you are fair and give credit to your group as per their effort and participation in the organization, preparation of deliverables and forum participation tasks. 
         </p>
