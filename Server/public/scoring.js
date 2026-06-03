@@ -1,6 +1,8 @@
 const tallyScoreHeader = `Class,Group,Student First Name,Student Last Name,Student Email,Student Score,Evaluation Submitted,Student Feedback (if provided)`;
 var tallyScoreCSV = tallyScoreHeader;
 (async () => {
+  const memberCSVData = await loadMembers();
+
   const response = await fetch("/api/scoring");
   const data = await response.json();
 
@@ -95,6 +97,46 @@ var tallyScoreCSV = tallyScoreHeader;
     document
       .getElementById("req-scoring-byclass")
       .appendChild(classExportLink);
+  });
+  const importData = document.getElementById("import-student-data");
+  const fileInput = document.getElementById("student-file-input");
+
+  importData.addEventListener("click", () => {
+    fileInput.click();
+  });
+
+  fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+
+    if (!file) {
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = async () => {
+      const csvText = reader.result;
+
+      console.log(csvText);
+
+      const response = await fetch("/api/members", {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain"
+        },
+        body: csvText
+      });
+
+      if (!response.ok) {
+        alert("Failed to upload student CSV.");
+        return;
+      }
+
+      alert("Student CSV uploaded successfully.");
+      window.location.reload();
+    };
+
+    reader.readAsText(file);
   });
 
   const deleteData = document.getElementById("delete-scoring-data");

@@ -46,4 +46,25 @@ MIST.6010-081, Team_6, eric_sowersby@student.uml.edu, Eric, Sowersby
 MIST.6010-081, Team_6, adam_maienza@student.uml.edu, Adam, Maienza
 MIST.6010-081, Team_6, patrick_senier@student.uml.edu, Patrick, Senier
 MIST.6010-081, Team_6, patrick_berry@student.uml.edu, Patrick, Berry
-MIST.6010-081, Team_6, patrick_crews@uml.edu, Patrick, Crews`
+MIST.6010-081, Team_6, patrick_crews@uml.edu, Patrick, Crews`;
+
+async function loadMembers() {
+  try {
+    const response = await fetch("/api/members");
+
+    if (!response.ok) {
+      return memberCSVData;
+    }
+
+    const uploadedCSV = await response.text();
+
+    if (!uploadedCSV.trim()) {
+      return memberCSVData;
+    }
+
+    return uploadedCSV;
+  } catch (err) {
+    console.error("Could not load members from MongoDB:", err);
+    return memberCSVData;
+  }
+}

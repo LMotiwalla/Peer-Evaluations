@@ -1,4 +1,6 @@
 (async () => {
+  const memberCSVData = await loadMembers();
+
   const members = memberCSVData.split("\n").map((member) => {
     member = member.split(",").map(field => field.trim());
 
@@ -99,13 +101,23 @@
 
     const scoreSubmissions = Array.from(
       document.querySelectorAll("[type=radio]:checked")
-    ).map(checked => ({
-      student: atob(checked.name),
-      score: Number(checked.value),
-      reviewer: activeMember.Email,
-      class: activeMember.Class,
-      group: activeMember.Group
-    }));
+    ).map(checked => {
+      const studentEmail = atob(checked.name);
+
+      const reviewedStudent = members.find(member =>
+        member.Email.toLowerCase() === studentEmail.toLowerCase()
+      );
+
+      return {
+        class: activeMember.Class,
+        group: activeMember.Group,
+        student: reviewedStudent.Email,
+        firstName: reviewedStudent.First_Name,
+        lastName: reviewedStudent.Last_Name,
+        score: Number(checked.value),
+        reviewer: activeMember.Email
+      };
+    });
 
     const feedbackText = document.getElementById("feedbackTextbox").value;
 

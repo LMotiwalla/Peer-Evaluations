@@ -16,8 +16,8 @@ const client = new MongoClient(process.env.MONGO_URI);
 
 let scores;
 let comments;
+let members;
 
-// Get scoring-page data
 app.get("/api/scoring", async (req, res) => {
   try {
     const tallyValues = await scores.aggregate([
@@ -119,6 +119,58 @@ app.delete("/api/scoring", async (req, res) => {
   }
 });
 
+app.get("/api/members", async (req, res) => {
+  try {
+    const savedMembers = await members.findOne({ name: "current" });
+
+    if (!savedMembers) {
+      return res.status(404).json({
+        error: "No uploaded member CSV found"
+      });
+    }
+
+    res.type("text/csv").send(savedMembers.csvText);
+  } catch (err) {
+    console.error("Error fetching members CSV:", err);
+    res.status(500).json({
+      error: "Failed to get member CSV"
+    });
+  }
+});
+
+app.post("/api/members", express.text({ type: "*/*" }), async (req, res) => {
+  try {
+    const csvText = req.body;
+
+    if (!csvText || csvText.trim() === "") {
+      return res.status(400).json({
+        error: "CSV file is empty"
+      });
+    }
+
+    await members.updateOne(
+      { name: "current" },
+      {
+        $set: {
+          name: "current",
+          csvText: csvText,
+          updatedAt: new Date()
+        }
+      },
+      { upsert: true }
+    );
+
+    res.json({
+      success: true
+    });
+  } catch (err) {
+    console.error("Error saving members CSV:", err);
+    res.status(500).json({
+      error: "Failed to save member CSV"
+    });
+  }
+});
+
 app.get("/api/test", (req, res) => {
   res.json({ message: "Server is working." });
 });
@@ -129,7 +181,7 @@ async function startServer() {
   const db = client.db("peer-evaluations");
   scores = db.collection("scores");
   comments = db.collection("comments");
-
+  members = db.collection("members");
   app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
   });
